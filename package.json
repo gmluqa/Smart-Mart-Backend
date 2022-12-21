@@ -4,6 +4,7 @@
   "description": "The backend for my end of course project, Smart Mart: Smart solutions for smart people.",
   "main": "index.js",
   "scripts": {
+    "build": "npm i",
     "start": "node index.js"
   },
   "repository": {
