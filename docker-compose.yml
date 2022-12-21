@@ -2,21 +2,25 @@ services:
   mySQL:
     image: mysql:8.0.31
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
 
-  # express:
-  #   image: bitnami/express:4.18.2
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - "./*:/app"
-  #   environment:
-  #     - PORT=3000
-  #     - NODE_ENV=development
-  #     - DATABASE_URL=mongodb://mongodb:27017/myapp
-  #     - EXPRESS_SKIP_DB_WAIT=0
-  #     - EXPRESS_SKIP_DB_MIGRATION=0
-  #     - EXPRESS_SKIP_NPM_INSTALL=0
-  #     - EXPRESS_SKIP_BOWER_INSTALL=0
+  expressJs:
+    image: bitnami/express:4.18.2
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - DATABASE_URL=localhost:3306
+      - EXPRESS_SKIP_DB_WAIT=0
+      - EXPRESS_SKIP_DB_MIGRATION=0
+      - EXPRESS_SKIP_NPM_INSTALL=0
+      - EXPRESS_SKIP_BOWER_INSTALL=0
+    volumes:
+      - test:/app
+    depends_on:
+      - mySQL
