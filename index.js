@@ -3,10 +3,10 @@ const app = express()
 
 const PORT = 3000
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Smart Mart Express server listening at localhost:${PORT}`)
 })
 
-app.get("/hello", function (req, res) {
-    res.send("hello!")
+app.get("/", function (req, res) {
+    res.send("hello world!")
 })
