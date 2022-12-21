@@ -21,6 +21,6 @@ services:
       - EXPRESS_SKIP_NPM_INSTALL=0
       - EXPRESS_SKIP_BOWER_INSTALL=0
     volumes:
-      - test:/app
+      - ".:/app"
     depends_on:
       - mySQL
