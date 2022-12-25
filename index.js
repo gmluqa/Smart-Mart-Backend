@@ -1,3 +1,4 @@
+// ENV variables
 require('dotenv').config()
 
 // Express Server
@@ -9,7 +10,7 @@ const PORT = 3000
 // Sequelize mysql db connection
 const db = require('./db/db.js')
 
-// "El rollo"
+// Connection, sync DB with db.js params
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Smart Mart Express server listening at localhost:${PORT}`)
 
@@ -18,8 +19,4 @@ app.listen(process.env.PORT || PORT, () => {
     }).catch(error => {
         console.log("Uh oh, error ->", error)
     })
-})
-
-app.get("/", function (req, res) {
-    res.send("hello world!")
 })
