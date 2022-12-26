@@ -12,4 +12,4 @@ Populate node_modules `npm i`
 
 Spin the docker containers `docker compose up`
 
-Check to see that deployment was succesful by navigating to `localhost:3000/hello` in your web browser
+Run `npx sequelize-cli db:create` to migrate the db to the MySQL container
