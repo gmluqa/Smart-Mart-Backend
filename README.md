@@ -13,3 +13,5 @@ Populate node_modules `npm i`
 Spin the docker containers `docker compose up`
 
 Run `npx sequelize-cli db:create` to migrate the db to the MySQL container
+
+Then run `npx sequelize-cli db:migrate` to migrate the tables to ENV
