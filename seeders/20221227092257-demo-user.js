@@ -5,6 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert('Users', [{
+      id: 1,
       email: 'admin@smartmart.com',
       password: 'password1234',
       address: 'undisclosed',
@@ -16,6 +17,7 @@ module.exports = {
       UpdatedAt: Sequelize.literal("CURRENT_TIMESTAMP")
     },
     {
+      id: 2,
       email: 'person1@smartmart.com',
       password: 'password1234',
       address: 'Arralabala',
@@ -27,6 +29,7 @@ module.exports = {
       UpdatedAt: Sequelize.literal("CURRENT_TIMESTAMP")
     },
     {
+      id: 3,
       email: 'person2@smartmart.com',
       password: 'cant',
       address: 'Perth',
@@ -38,6 +41,7 @@ module.exports = {
       UpdatedAt: Sequelize.literal("CURRENT_TIMESTAMP")
     },
     {
+      id: 4,
       email: 'person3@smartmart.com',
       password: 'cantx2',
       address: 'Berlin',
@@ -49,6 +53,7 @@ module.exports = {
       UpdatedAt: Sequelize.literal("CURRENT_TIMESTAMP")
     },
     {
+      id: 5,
       email: 'person4@smartmart.com',
       password: 'canihaz',
       address: 'Jacobs town',
