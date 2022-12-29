@@ -11,7 +11,7 @@ const db = require("./db/db.js");
 // Connection, sync DB with db.js params
 app.listen(PORT, () => {
   console.log(
-    `Listening on ${process.env.DB_HOST}:${PORT}, \nWelcome to The Comfy Zone 😎`
+    `Listening on ${process.env.DB_HOST}:${PORT}, \nWelcome to the Smart Mart DB 😎`
   );
 
   db.sync({ force: true })
