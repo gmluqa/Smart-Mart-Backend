@@ -20,3 +20,5 @@ services:
       - PORT=3000
     volumes:
       - ".:/app"
+    ports:
+      - "3000:3000"
