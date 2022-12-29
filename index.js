@@ -1,8 +1,7 @@
 require("dotenv").config();
 
 // Express Server
-const express = require("express");
-const app = express();
+const app = require("./app");
 
 const PORT = 3000;
 
@@ -12,13 +11,12 @@ const db = require("./db/db.js");
 // Connection, sync DB with db.js params
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Smart Mart Express server listening at localhost:${PORT}`);
-
   db.sync({ force: true })
     .then(() => {
-      console.log("Connected!");
+      console.log("Connected to database!");
     })
     .catch((error) => {
-      console.log("Uh oh, error ->", error);
+      console.log("Uh oh, error: " + error);
     });
 });
 
