@@ -5,13 +5,14 @@ module.exports = {
     "username": "root",
     "password": "root",
     "database": "SmartMart_Development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": "3306"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "SmartMart_Production",
+    "password": "root",
+    "database": "SmartMart_Development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

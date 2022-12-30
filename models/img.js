@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Img.hasOne(models.Product);
+      Img.belongsTo(models.Product);
     }
   }
   Img.init(
