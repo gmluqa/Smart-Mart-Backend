@@ -3,8 +3,16 @@ const userRouter = express.Router();
 
 const { registerController } = require("../controllers/user.controller.js");
 
-const { checkIfEmailValidAndUnique } = require("../middleware/user.middleware");
+const {
+  checkIfEmailValidAndUnique,
+  checkIfPasswordValid,
+} = require("../middleware/user.middleware");
 
-userRouter.post("/register", checkIfEmailValidAndUnique, registerController);
+userRouter.post(
+  "/register",
+  checkIfEmailValidAndUnique,
+  checkIfPasswordValid,
+  registerController
+);
 
 module.exports = userRouter;

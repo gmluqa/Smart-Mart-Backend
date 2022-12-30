@@ -17,6 +17,17 @@ const checkIfEmailValidAndUnique = async (req, res, next) => {
   }
 };
 
+const checkIfPasswordValid = async (req, res, next) => {
+  const passwordRegex = /^.{8,}$/;
+
+  if (req.body.password.match(passwordRegex)) {
+    next();
+  } else {
+    res.status(400).json({ message: "Password must have at least 8 letters" });
+  }
+};
+
 module.exports = {
   checkIfEmailValidAndUnique,
+  checkIfPasswordValid,
 };
