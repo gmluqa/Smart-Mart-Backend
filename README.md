@@ -13,3 +13,5 @@ Populate node_modules `npm i`
 Spin the docker container `docker compose up`
 
 Run `npm run db:init` to auto-dump the SQL into the docker container.
+
+Then in another terminal, run `node --watch index.js` to launch express

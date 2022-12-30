@@ -4,10 +4,9 @@ const getProductDetailController = async (req, res) => {
   try {
     const { id } = req.params;
     const resp = await getProductDetail(id);
-    resp ? res.status(202).json(resp) : res.status(204).json;
+    resp.id ? res.status(202).json(resp) : res.status(404).json;
   } catch (error) {
-    console.log(error);
-    res.status(400).json({ message: error });
+    res.status(404).json({ message: "product not found" });
   }
 };
 
