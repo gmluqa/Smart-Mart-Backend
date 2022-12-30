@@ -2,7 +2,7 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize("SmartMart_Development", "root", "root", {
-  host: "mysqlDB",
+  host: "localhost",
   port: "3306",
   dialect: "mysql",
 });

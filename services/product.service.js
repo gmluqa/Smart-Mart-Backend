@@ -4,7 +4,7 @@ const models = require("../models/index");
 const getProductDetail = async (id) => {
   const productDetail = await models.Product.findOne({
     where: {
-      product_name: id,
+      id: id,
     },
   });
   return productDetail;
