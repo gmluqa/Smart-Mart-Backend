@@ -1,9 +1,10 @@
-const { registerUser } = require("../services/user.service");
+const { registerUser, assignRole } = require("../services/user.service");
 
-const registerController = (req, res) => {
+const registerController = async (req, res) => {
   try {
     let body = req.body;
-    registerUser(body);
+    await registerUser(body);
+    await assignRole(body.email, "User");
     res.status(201).send({
       message: "You have registered succesfully!",
     });

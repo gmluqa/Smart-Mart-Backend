@@ -19,7 +19,26 @@ const registerUser = async (userCredentials) => {
   await newUser.save();
 };
 
+const assignRole = async (email, role) => {
+  const userToBeAssigned = await findUserByEmail(email);
+  const newUserRole = new models.Role({
+    user_id: userToBeAssigned.id,
+    role: role,
+  });
+  await newUserRole.save();
+};
+
+const findUserByEmail = async (email) => {
+  const userFoundByEmail = await models.User.findOne({
+    where: {
+      email: email,
+    },
+  });
+  return userFoundByEmail;
+};
+
 module.exports = {
   hashPassword,
   registerUser,
+  assignRole,
 };
