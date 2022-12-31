@@ -37,8 +37,15 @@ const findUserByEmail = async (email) => {
   return userFoundByEmail;
 };
 
+const bcryptCompare = async (password, hashedPassword) => {
+  const passCompare = await bcrypt.compare(password, hashedPassword);
+  return passCompare;
+};
+
 module.exports = {
   hashPassword,
   registerUser,
   assignRole,
+  bcryptCompare,
+  findUserByEmail,
 };

@@ -1,7 +1,10 @@
 const express = require("express");
 const userRouter = express.Router();
 
-const { registerController } = require("../controllers/user.controller.js");
+const {
+  registerController,
+  loginController,
+} = require("../controllers/user.controller.js");
 
 const {
   checkIfEmailValidAndUnique,
@@ -14,5 +17,7 @@ userRouter.post(
   checkIfPasswordValid,
   registerController
 );
+
+userRouter.post("/login", loginController);
 
 module.exports = userRouter;
