@@ -1,0 +1,8 @@
+# URI Bones http://localhost:3000/product/id/:id/img/:imgDefiner
+GET http://localhost:3000/product/id/1/img/main HTTP/1.1
+
+# Testing for non existing product
+GET http://localhost:3000/product/id/6/img/main HTTP/1.1
+
+# Testing for non existing img
+GET http://localhost:3000/product/id/2/img/asdasd HTTP/1.1

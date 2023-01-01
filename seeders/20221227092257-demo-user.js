@@ -1,4 +1,5 @@
 "use strict";
+const { hashPassword } = require("../services/user.service");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
         {
           id: 1,
           email: "admin@smartmart.com",
-          password: "password1234",
+          password: await hashPassword("admin1234"),
           address: "undisclosed",
           country: "Zambia",
           postcode: "0x12",
@@ -21,7 +22,7 @@ module.exports = {
         {
           id: 2,
           email: "person1@smartmart.com",
-          password: "password1234",
+          password: await hashPassword("password1234"),
           address: "Arralabala",
           country: "Moldova",
           postcode: "0x13",
@@ -33,7 +34,7 @@ module.exports = {
         {
           id: 3,
           email: "person2@smartmart.com",
-          password: "cant",
+          password: await hashPassword("cant"),
           address: "Perth",
           country: "Australia",
           postcode: "0x190",
@@ -45,7 +46,7 @@ module.exports = {
         {
           id: 4,
           email: "person3@smartmart.com",
-          password: "cantx2",
+          password: await hashPassword("wonteletu"),
           address: "Berlin",
           country: "Germany",
           postcode: "000x00",
@@ -57,7 +58,7 @@ module.exports = {
         {
           id: 5,
           email: "person4@smartmart.com",
-          password: "canihaz",
+          password: await hashPassword("canihaz"),
           address: "Jacobs town",
           country: "USA",
           postcode: "0x190",
