@@ -33,10 +33,11 @@ const loginController = async (req, res) => {
     if (isPasswordMatch === false) {
       res.status(400).json({ message: "Incorrect email or password." });
     } else {
-      const secret = process.env.JWT_TOKEN_SECRET || "SECRET";
+      const secret = process.env.JWT_TOKEN_SECRET;
       const token = jsonwebtoken.sign(
         {
           email: loggedInUser.email,
+          exp: Date.now() + 100000000,
         },
         secret
       );
