@@ -10,6 +10,18 @@ const getProductDetail = async (id) => {
   return productDetail;
 };
 
+const getImgByProductIdAndImgDefiner = async (productId, imgDefiner) => {
+  const productImg = await models.Img.findOne({
+    where: {
+      product_id: productId,
+      img_definer: imgDefiner,
+    },
+    attributes: ["img_path"],
+  });
+  return productImg;
+};
+
 module.exports = {
   getProductDetail,
+  getImgByProductIdAndImgDefiner,
 };
