@@ -1,6 +1,7 @@
 const {
   getProductDetail,
   getImgByProductIdAndImgDefiner,
+  getProductDetailByName,
 } = require("../services/product.service.js");
 
 const getProductDetailController = async (req, res) => {
@@ -24,7 +25,18 @@ const getImageByIdAndDefiner = async (req, res) => {
   }
 };
 
+const getProductDetailByNameController = async (req, res) => {
+  const { name } = req.params;
+  try {
+    const resp = await getProductDetailByName(name);
+    resp[0].product_name ? res.status(202).json(resp) : res.status(404).json;
+  } catch (error) {
+    res.status(404).json({ message: "Product not found" });
+  }
+};
+
 module.exports = {
   getProductDetailController,
   getImageByIdAndDefiner,
+  getProductDetailByNameController,
 };
