@@ -1,6 +1,12 @@
 # Smart-Mart-Backend
 
-## Set-up for local deployment
+## API good practices employed
+
+- Not over-sharing DB info, only what is necesarry for the frontend
+- Production API is using HTTPS to protect user JWT's
+- HTTP status codes used in the correct context
+
+## Set-up for local deployment/development
 
 Reqs: git, docker compose
 

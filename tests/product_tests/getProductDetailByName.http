@@ -1,0 +1,20 @@
+# Endpoint GET product by Product_Name
+# RETURNS:
+
+# {
+# product_name: 
+# product_alt_text:
+# product_price:
+# product_description:
+# active:
+# tags: [include all tag_name's in this array, where product_id=product_id on tags]
+# img: {
+# 	// include all definers to path, where product_id=product_id on img
+# 	img_definer : img_path
+# }
+# }
+GET http://localhost:3000/product/name/Cleaning slippers HTTP/1.1
+
+GET http://localhost:3000/product/name/Zubits HTTP/1.1
+
+GET http://localhost:3000/product/name/failtest HTTP/1.1

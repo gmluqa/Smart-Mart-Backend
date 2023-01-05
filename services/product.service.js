@@ -21,7 +21,40 @@ const getImgByProductIdAndImgDefiner = async (productId, imgDefiner) => {
   return productImg;
 };
 
+const getProductDetailByName = async (productName) => {
+  let productDetail = await models.Product.findOne({
+    attributes: [
+      "id",
+      "product_name",
+      "product_alt_text",
+      "product_price",
+      "product_description",
+      "active",
+    ],
+    where: {
+      product_name: productName,
+    },
+  });
+  let allTagsArray = await models.Tag.findAll({
+    attributes: ["tag_name"],
+    where: {
+      product_id: productDetail.id,
+    },
+  });
+  allTagsArray = allTagsArray?.map((i) => i.tag_name);
+  let allImgsArray = await models.Img.findAll({
+    attributes: ["img_definer", "img_path"],
+    where: {
+      product_id: productDetail.id,
+    },
+  });
+  // We remove the id from the response
+  delete productDetail.dataValues["id"];
+  return [productDetail, allTagsArray, allImgsArray];
+};
+
 module.exports = {
   getProductDetail,
   getImgByProductIdAndImgDefiner,
+  getProductDetailByName,
 };
