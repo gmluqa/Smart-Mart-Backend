@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       product_price: DataTypes.STRING,
       product_description: DataTypes.STRING,
       active: DataTypes.BOOLEAN,
+      youtube_url: DataTypes.STRING,
     },
     {
       sequelize,

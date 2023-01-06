@@ -24,6 +24,9 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN,
       },
+      youtube_url: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
