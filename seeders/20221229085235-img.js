@@ -36,7 +36,8 @@ module.exports = {
         {
           id: 4,
           product_id: 4,
-          img_path: "/pathexample4",
+          img_path:
+            "https://ae01.alicdn.com/kf/S702b4f18a20946dd9d38a1465e89e898u/Herramienta-de-filtrado-de-agua-potable-directa-de-emergencia-para-vida-salvaje-al-aire-libre-desinfecci.jpg_Q90.jpg",
           img_definer: "main",
           createdAt: Sequelize.literal("CURRENT_TIMESTAMP"),
           updatedAt: Sequelize.literal("CURRENT_TIMESTAMP"),
@@ -44,7 +45,8 @@ module.exports = {
         {
           id: 5,
           product_id: 5,
-          img_path: "/pathexample5",
+          img_path:
+            "https://ae01.alicdn.com/kf/Hbd7356f3b3974554a587bd310c0865f74/Rodillo-r-pido-para-hacer-Sushi-molde-de-arroz-utensilios-de-cocina-para-carne-y-verduras.jpg_Q90.jpg",
           img_definer: "main",
           createdAt: Sequelize.literal("CURRENT_TIMESTAMP"),
           updatedAt: Sequelize.literal("CURRENT_TIMESTAMP"),

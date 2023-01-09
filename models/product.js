@@ -18,8 +18,9 @@ module.exports = (sequelize, DataTypes) => {
       product_name: DataTypes.STRING,
       product_alt_text: DataTypes.STRING,
       product_price: DataTypes.STRING,
-      product_description: DataTypes.STRING,
+      product_description: DataTypes.TEXT("medium"),
       active: DataTypes.BOOLEAN,
+      youtube_url: DataTypes.STRING,
     },
     {
       sequelize,

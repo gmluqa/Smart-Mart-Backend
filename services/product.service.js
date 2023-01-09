@@ -30,6 +30,7 @@ const getProductDetailByName = async (productName) => {
       "product_price",
       "product_description",
       "active",
+      "youtube_url",
     ],
     where: {
       product_name: productName,

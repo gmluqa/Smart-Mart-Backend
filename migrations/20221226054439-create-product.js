@@ -19,10 +19,13 @@ module.exports = {
         type: Sequelize.STRING,
       },
       product_description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT("medium"),
       },
       active: {
         type: Sequelize.BOOLEAN,
+      },
+      youtube_url: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
