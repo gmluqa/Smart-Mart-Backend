@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "node --watch index.js",
     "db:init": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "repository": {
