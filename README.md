@@ -9,6 +9,8 @@ Welcome to the Backend repo for my project: Smart Mart, the one stop shop for al
 
 The database is a MySQL, that uses Sequelize as an ORM to establish the connection. The api's component is all handled through Express.js.
 
+If you would like to see this in production, please direct yourself to the following repository -> https://github.com/gmluqa/Smart-Mart-Frontend
+
 ![database diagram](./readme/img/ER_Diagram.png)
 
 ## Set-up for local deployment/development
