@@ -42,10 +42,21 @@ const bcryptCompare = async (password, hashedPassword) => {
   return passCompare;
 };
 
+const loggedInUsersRole = async (userId) => {
+  const userRole = await models.Role.findOne({
+    attributes: ["role"],
+    where: {
+      user_id: userId,
+    },
+  });
+  return userRole;
+};
+
 module.exports = {
   hashPassword,
   registerUser,
   assignRole,
   bcryptCompare,
   findUserByEmail,
+  loggedInUsersRole,
 };

@@ -3,6 +3,7 @@ const {
   assignRole,
   bcryptCompare,
   findUserByEmail,
+  loggedInUsersRole,
 } = require("../services/user.service");
 
 const jsonwebtoken = require("jsonwebtoken");
@@ -26,6 +27,7 @@ const loginController = async (req, res) => {
   try {
     let email = req.body.email;
     const loggedInUser = await findUserByEmail(email);
+    const loggedinUserWithRole = await loggedInUsersRole(loggedInUser.id);
     const isPasswordMatch = await bcryptCompare(
       req.body.password,
       loggedInUser.password
@@ -38,6 +40,7 @@ const loginController = async (req, res) => {
         {
           email: loggedInUser.email,
           exp: Date.now() + 100000000,
+          userType: loggedinUserWithRole.role,
         },
         secret
       );
