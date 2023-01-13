@@ -35,6 +35,7 @@ Check the tests folder for all avaliable endpoints, I reccomend installing the e
 
 ## API good practices employed
 
+- If you check config/config.js, you'll see it's a .js file as opposed to a .json, this is to allow for no admin production keys to be uploaded to github (by default, sequelize serves it as a .json file)
 - Not over-sharing DB info, only what is necesarry for the frontend
 - Production API is using HTTPS to protect user JWT's
 - HTTP status codes used in the correct context
