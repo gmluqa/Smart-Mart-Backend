@@ -36,6 +36,9 @@ const getProductDetailByName = async (productName) => {
       product_name: productName,
     },
   });
+  if (productDetail == null) {
+    return;
+  }
   let allTagsArray = await models.Tag.findAll({
     attributes: ["tag_name"],
     where: {

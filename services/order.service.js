@@ -19,7 +19,7 @@ const createNewOrder = async (body, jwt) => {
   // for each item, create an order with it, if such an item doesn't exist (not found, skip it)
   body.items.forEach(async (element) => {
     let productFoundByName = await getProductDetailByName(element);
-    console.log(productFoundByName);
+    console.log(productFoundByName?.[0]?._previousDataValues?.id);
     // let newOrder = new models.Order({});
     // await newOrder.save();
   });
