@@ -9,7 +9,7 @@ const orderController = async (req, res) => {
     if (body?.items.length == 0) {
       throw new Error();
     }
-    res.status(202).json({ message: "done bro" });
+    // res.status(202).json({ message: "done bro" });
     await createNewOrder(body);
     // await registerUser(body);
     // await assignRole(body.email, "User");
