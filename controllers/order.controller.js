@@ -1,10 +1,11 @@
-const {} = require("../services/order.service");
+// const {} = require("../services/order.service");
 
 //   const jsonwebtoken = require("jsonwebtoken");
 
-const orderController = () => {
+const orderController = async (req, res) => {
   try {
     let body = req.body;
+    res.status(202).json({ message: "Authed!!!" });
     // await registerUser(body);
     // await assignRole(body.email, "User");
     // res.status(201).send({

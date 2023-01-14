@@ -5,6 +5,6 @@ const { authenticateToken } = require("../middleware/auth.middleware");
 
 const { orderController } = require("../controllers/order.controller");
 
-orderRouter.post("/order", authenticateToken, orderController);
+orderRouter.post("/new", authenticateToken, orderController);
 
 module.exports = orderRouter;
