@@ -8,12 +8,13 @@ const createNewOrder = async (body, jwt) => {
   jwt = jwt && jwt.split(" ")[1];
   jwt = jsonwebtoken.decode(jwt);
 
+  // get user by email endpoint
   let foundUserId = await findUserByEmail(jwt.email);
   foundUserId = foundUserId.id;
-  console.log(foundUserId);
-  // get user by email endpoint
+
   // generate a constant order ID
-  const orderUuid = crypto.randomUUID;
+  const orderUuid = crypto.randomUUID();
+  console.log(orderUuid);
   // for each item, create an order with it, if such an item doesn't exist (not found, skip it)
   // in each iteration, get the price of it at the time
   // at the end of each iteration, save the order
