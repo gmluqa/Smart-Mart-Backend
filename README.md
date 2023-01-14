@@ -23,6 +23,8 @@ Switch to the develop branch `git switch develop`.
 
 Populate node_modules `npm i`
 
+Modify the `./.env.example` to `./.env`
+
 Spin the docker container `docker compose up`
 
 Run `npm run db:init` to auto-dump the SQL into the docker container.
