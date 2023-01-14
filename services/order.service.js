@@ -14,8 +14,11 @@ const createNewOrder = async (body, jwt) => {
 
   // generate a constant order ID
   const orderUuid = crypto.randomUUID();
-  console.log(orderUuid);
+
   // for each item, create an order with it, if such an item doesn't exist (not found, skip it)
+  body.items.forEach((element) => {
+    console.log(element);
+  });
   // in each iteration, get the price of it at the time
   // at the end of each iteration, save the order
   const newOrder = new models.Order({});
