@@ -2,6 +2,7 @@ const models = require("../models/index");
 const crypto = require("crypto");
 const jsonwebtoken = require("jsonwebtoken");
 const { findUserByEmail } = require("../services/user.service");
+const { getProductDetailByName } = require("../services/product.service.js");
 
 const createNewOrder = async (body, jwt) => {
   // find out what user it is, by decoding jwt
@@ -16,12 +17,14 @@ const createNewOrder = async (body, jwt) => {
   const orderUuid = crypto.randomUUID();
 
   // for each item, create an order with it, if such an item doesn't exist (not found, skip it)
-  body.items.forEach((element) => {
-    console.log(element);
+  body.items.forEach(async (element) => {
+    let productFoundByName = await getProductDetailByName(element);
+    console.log(productFoundByName);
+    // let newOrder = new models.Order({});
+    // await newOrder.save();
   });
   // in each iteration, get the price of it at the time
   // at the end of each iteration, save the order
-  const newOrder = new models.Order({});
 };
 
 module.exports = {
