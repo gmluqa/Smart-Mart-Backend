@@ -1,11 +1,16 @@
-// const {} = require("../services/order.service");
+const { createNewOrder } = require("../services/order.service.js");
 
 //   const jsonwebtoken = require("jsonwebtoken");
 
 const orderController = async (req, res) => {
   try {
     let body = req.body;
-    res.status(202).json({ message: "Authed!!!" });
+    // handle error case for empty items array
+    if (body?.items.length == 0) {
+      throw new Error();
+    }
+    res.status(202).json({ message: "done bro" });
+    await createNewOrder(body);
     // await registerUser(body);
     // await assignRole(body.email, "User");
     // res.status(201).send({
@@ -13,7 +18,7 @@ const orderController = async (req, res) => {
     // });
   } catch (error) {
     res.status(400).json({
-      message: "Malformed order request, please try logging in again!",
+      message: "Malformed order request",
     });
   }
 };
