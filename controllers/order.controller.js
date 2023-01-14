@@ -14,9 +14,9 @@ const orderController = async (req, res) => {
     await createNewOrder(body, jwt);
     // await registerUser(body);
     // await assignRole(body.email, "User");
-    // res.status(201).send({
-    //   message: "You have registered succesfully!",
-    // });
+    res.status(201).send({
+      message: "Order succesful!",
+    });
   } catch (error) {
     res.status(400).json({
       message: "Malformed order request",

@@ -17,14 +17,22 @@ const createNewOrder = async (body, jwt) => {
   const orderUuid = crypto.randomUUID();
 
   // for each item, create an order with it, if such an item doesn't exist (not found, skip it)
-  body.items.forEach(async (element) => {
-    let productFoundByName = await getProductDetailByName(element);
-    console.log(productFoundByName?.[0]?._previousDataValues?.id);
-    // let newOrder = new models.Order({});
-    // await newOrder.save();
-  });
   // in each iteration, get the price of it at the time
   // at the end of each iteration, save the order
+  body.items.forEach(async (element) => {
+    let productFoundByName = await getProductDetailByName(element);
+    if (!productFoundByName?.[0]) {
+      return;
+    }
+    let newOrder = new models.Order({
+      user_id: foundUserId,
+      product_id: productFoundByName?.[0]?._previousDataValues?.id,
+      order_no: orderUuid,
+      product_price_at_time:
+        productFoundByName?.[0]?._previousDataValues?.product_price,
+    });
+    await newOrder.save();
+  });
 };
 
 module.exports = {
