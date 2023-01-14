@@ -9,8 +9,9 @@ const orderController = async (req, res) => {
     if (body?.items.length == 0) {
       throw new Error();
     }
+    let jwt = req.headers["authorization"];
     // res.status(202).json({ message: "done bro" });
-    await createNewOrder(body);
+    await createNewOrder(body, jwt);
     // await registerUser(body);
     // await assignRole(body.email, "User");
     // res.status(201).send({
