@@ -35,6 +35,17 @@ const createNewOrder = async (body, jwt) => {
   });
 };
 
+const getAllOrdersMadeByUserId = async (id) => {
+  let allFoundOrders = await models.Order.findAll({
+    attributes: ["order_no", "product_id", "product_price_at_time"],
+    where: {
+      user_id: id,
+    },
+  });
+  return allFoundOrders;
+};
+
 module.exports = {
   createNewOrder,
+  getAllOrdersMadeByUserId,
 };
