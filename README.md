@@ -7,7 +7,7 @@
 </p>
 Welcome to the Backend repo for my project: Smart Mart, the one stop shop for all things smart. 🔧
 
-The database is a MySQL, that uses Sequelize as an ORM to establish the connection. The api's component is all handled through Express.js.
+The database is a MySQL, that uses Sequelize as an ORM to establish the connection. The api's component is all handled through Express.js. Production api and database on Railway.
 
 If you would like to see this in production, please direct yourself to the following repository -> https://github.com/gmluqa/Smart-Mart-Frontend
 
