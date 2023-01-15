@@ -23,7 +23,7 @@ Switch to the develop branch `git switch develop`.
 
 Populate node_modules `npm i`
 
-Modify the `./.env.example` to `./.env`
+Modify the `./.env.example` to `./.env` (you'll have to set the JWT_TOKEN_SECRET variable, pick something funky and complex to crack 👽️)
 
 Spin the docker container `docker compose up`
 
