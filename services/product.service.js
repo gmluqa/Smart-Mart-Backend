@@ -70,8 +70,10 @@ const productsGetBySearch = async (search) => {
     let productFound = await getProductDetailByName(
       element.dataValues.product_name
     );
-    console.log(productFound[index]);
+    // console.log(productFound[0].dataValues);
   });
+  console.log(productFound[0].dataValues);
+
   return resp;
 };
 
