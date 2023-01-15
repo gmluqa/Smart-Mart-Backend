@@ -1,0 +1,2 @@
+# Search for any product_name containing
+GET http://localhost:3000/product/search/a HTTP/1.1
