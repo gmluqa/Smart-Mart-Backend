@@ -1,2 +1,6 @@
 # Search for any product_name containing
 GET http://localhost:3000/product/search/S HTTP/1.1
+
+
+# Search for any product_name containing non existant
+GET http://localhost:3000/product/search/Szxczfad HTTP/1.1

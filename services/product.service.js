@@ -65,7 +65,6 @@ const productsGetBySearch = async (search) => {
       },
     },
   });
-
   return searchResults;
 };
 

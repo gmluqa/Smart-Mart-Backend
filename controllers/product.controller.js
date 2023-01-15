@@ -40,7 +40,7 @@ const searchProductDetailByNameController = async (req, res) => {
   try {
     const { search } = req.params;
     const resp = await productsGetBySearch(search);
-    resp ? res.status(202).json(resp) : res.status(204).json();
+    resp[0] ? res.status(202).json(resp) : res.status(204).json();
   } catch (error) {
     res.status(400).json({ message: "Malformed request" });
   }
