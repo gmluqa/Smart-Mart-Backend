@@ -1,3 +1,7 @@
+# real admin just doin his thang 🔐
 GET http://localhost:3000/order/admin HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNtYXJ0bWFydC5jb20iLCJleHAiOjE2NzM4Nzc3NTA5NjMsInVzZXJUeXBlIjoiQWRtaW4iLCJpYXQiOjE2NzM3Nzc3NTB9.VIdLiyLRT8Jbef_5WT69Hc0GPp7aVT0GgYPB3JwFo1U
 
+# non admin trying to barge in
+GET http://localhost:3000/order/admin HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcnNvbjFAc21hcnRtYXJ0LmNvbSIsImV4cCI6MTY3Mzg4MDMwNDA4MSwidXNlclR5cGUiOiJVc2VyIiwiaWF0IjoxNjczNzgwMzA0fQ.2GN8FiWGUMw3c3TOav2V4pNKZ0WG_BVMXK7I2tID53E

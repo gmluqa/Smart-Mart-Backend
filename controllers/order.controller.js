@@ -54,8 +54,17 @@ const ordersMadeByUserController = async (req, res) => {
 
 const adminAllOrderController = async (req, res) => {
   try {
-    console.log("asd");
-  } catch (error) {}
+    if (
+      jsonwebtoken.decode(req.headers["authorization"].split(" ")[1])
+        .userType == "Admin"
+    ) {
+      console.log("you are the admin");
+    } else {
+      throw new Error("Not admin");
+    }
+  } catch (error) {
+    res.status(401).json({ message: "Not an admin" });
+  }
 };
 
 module.exports = {
