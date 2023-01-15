@@ -65,16 +65,8 @@ const productsGetBySearch = async (search) => {
       },
     },
   });
-  let resp = [];
-  searchResults.forEach(async (element, index) => {
-    let productFound = await getProductDetailByName(
-      element.dataValues.product_name
-    );
-    // console.log(productFound[0].dataValues);
-  });
-  console.log(productFound[0].dataValues);
 
-  return resp;
+  return searchResults;
 };
 
 module.exports = {
