@@ -35,8 +35,13 @@ const getProductDetailByNameController = async (req, res) => {
   }
 };
 
+const searchProductDetailByNameController = async (req, res) => {
+  console.log("arrived!");
+};
+
 module.exports = {
   getProductDetailController,
   getImageByIdAndDefiner,
   getProductDetailByNameController,
+  searchProductDetailByNameController,
 };
