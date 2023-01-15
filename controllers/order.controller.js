@@ -1,6 +1,7 @@
 const {
   createNewOrder,
   getAllOrdersMadeByUserId,
+  getAllOrdersMadeInApp,
 } = require("../services/order.service.js");
 const { findUserByEmail } = require("../services/user.service");
 const { getProductDetail } = require("../services/product.service");
@@ -58,11 +59,16 @@ const adminAllOrderController = async (req, res) => {
       jsonwebtoken.decode(req.headers["authorization"].split(" ")[1])
         .userType == "Admin"
     ) {
-      console.log("you are the admin");
-    } else {
+      let resp = await getAllOrdersMadeInApp();
+      resp ? res.status(202).json(resp) : res.status(404).json;
+    } else if (
+      jsonwebtoken.decode(req.headers["authorization"].split(" ")[1])
+        .userType != "Admin"
+    ) {
       throw new Error("Not admin");
     }
   } catch (error) {
+    console.log(error);
     res.status(401).json({ message: "Not an admin" });
   }
 };

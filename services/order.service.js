@@ -50,7 +50,15 @@ const getAllOrdersMadeByUserId = async (id) => {
   return allFoundOrders;
 };
 
+const getAllOrdersMadeInApp = async () => {
+  let allOrders = await models.Order.findAll({
+    attributes: ["user_id", "product_id", "order_no", "product_price_at_time"],
+  });
+  return allOrders;
+};
+
 module.exports = {
   createNewOrder,
   getAllOrdersMadeByUserId,
+  getAllOrdersMadeInApp,
 };
