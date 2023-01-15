@@ -3,6 +3,7 @@ const {
   getAllOrdersMadeByUserId,
 } = require("../services/order.service.js");
 const { findUserByEmail } = require("../services/user.service");
+const { getProductDetail } = require("../services/product.service");
 const jsonwebtoken = require("jsonwebtoken");
 
 const orderController = async (req, res) => {
@@ -38,13 +39,17 @@ const ordersMadeByUserController = async (req, res) => {
     console.log(foundUser.dataValues.id);
     // findUserByEmail service
     // getOrdersMadeByUser
-    const resp = await getAllOrdersMadeByUserId(foundUser.dataValues.id);
-    resp.forEach((element) => {
-      console.log(element.dataValues.order_no);
-      console.log(element.dataValues.product_id);
-      console.log(element.dataValues.product_price_at_time);
+
+    let resp = await getAllOrdersMadeByUserId(foundUser.dataValues.id);
+    resp.forEach(async (element, i) => {
+      let productName = await getProductDetail(element.product_id);
+      resp[i].dataValues["product_name"] = await productName.dataValues
+        .product_name;
     });
-  } catch (error) {}
+    resp ? res.status(202).json(resp) : res.status(404).json;
+  } catch (error) {
+    res.status(404).json({ message: "Error with fetching orderss" });
+  }
 };
 
 module.exports = {
