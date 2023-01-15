@@ -52,7 +52,14 @@ const ordersMadeByUserController = async (req, res) => {
   }
 };
 
+const adminAllOrderController = async (req, res) => {
+  try {
+    console.log("asd");
+  } catch (error) {}
+};
+
 module.exports = {
   orderController,
   ordersMadeByUserController,
+  adminAllOrderController,
 };
