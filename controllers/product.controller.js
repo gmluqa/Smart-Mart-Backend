@@ -2,6 +2,7 @@ const {
   getProductDetail,
   getImgByProductIdAndImgDefiner,
   getProductDetailByName,
+  productsGetBySearch,
 } = require("../services/product.service.js");
 
 const getProductDetailController = async (req, res) => {
@@ -36,7 +37,13 @@ const getProductDetailByNameController = async (req, res) => {
 };
 
 const searchProductDetailByNameController = async (req, res) => {
-  console.log("arrived!");
+  try {
+    const { search } = req.params;
+    const resp = await productsGetBySearch(search);
+    resp ? res.status(202).json(resp) : res.status(204).json();
+  } catch (error) {
+    res.status(400).json({ message: "Malformed request" });
+  }
 };
 
 module.exports = {

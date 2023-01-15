@@ -1,4 +1,4 @@
-// const { Op, DATE } = require("sequelize");
+const { Op } = require("sequelize");
 const models = require("../models/index");
 
 const getProductDetail = async (id) => {
@@ -57,8 +57,27 @@ const getProductDetailByName = async (productName) => {
   return [productDetail, allTagsArray, allImgsArray];
 };
 
+const productsGetBySearch = async (search) => {
+  const searchResults = await models.Product.findAll({
+    where: {
+      product_name: {
+        [Op.like]: `%${search}%`,
+      },
+    },
+  });
+  let resp = [];
+  searchResults.forEach(async (element, index) => {
+    let productFound = await getProductDetailByName(
+      element.dataValues.product_name
+    );
+    console.log(productFound[index]);
+  });
+  return resp;
+};
+
 module.exports = {
   getProductDetail,
   getImgByProductIdAndImgDefiner,
   getProductDetailByName,
+  productsGetBySearch,
 };

@@ -45,3 +45,5 @@ Check the tests folder for all avaliable endpoints, I reccomend installing the e
 # Credits
 
 Have come to appreciate Sequelize as an ORM, once used to it, it is smooth sailing 🚣, I'd like to thank my tutors at GeeksHubs for giving me a foundation to grow as a software dev! 😍
+
+For my next backend project, I am going to target the API as minimum as possible (there is substantial refactoring to be done in the services files). Also more uniform logic and naming for sure.
