@@ -37,10 +37,8 @@ const ordersMadeByUserController = async (req, res) => {
     let decoded = jsonwebtoken.decode(token);
     let userEmail = decoded.email;
     let foundUser = await findUserByEmail(userEmail);
-    console.log(foundUser.dataValues.id);
     // findUserByEmail service
     // getOrdersMadeByUser
-
     let resp = await getAllOrdersMadeByUserId(foundUser.dataValues.id);
     resp.forEach(async (element, i) => {
       let productName = await getProductDetail(element.product_id);
@@ -68,7 +66,6 @@ const adminAllOrderController = async (req, res) => {
       throw new Error("Not admin");
     }
   } catch (error) {
-    console.log(error);
     res.status(401).json({ message: "Not an admin" });
   }
 };

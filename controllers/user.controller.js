@@ -47,7 +47,6 @@ const loginController = async (req, res) => {
       res.status(200).json({ token: token });
     }
   } catch (error) {
-    console.log(error);
     res.status(401).json({ message: "Incorrect email or password." });
   }
 };
