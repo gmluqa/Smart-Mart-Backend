@@ -1,16 +1,11 @@
-// Local test, admin auth
-POST http://localhost:3000/product/create-product HTTP/1.1
+PUT http://localhost:3000/product/id/20 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNtYXJ0bWFydC5jb20iLCJleHAiOjE2NzM4Nzc3NTA5NjMsInVzZXJUeXBlIjoiQWRtaW4iLCJpYXQiOjE2NzM3Nzc3NTB9.VIdLiyLRT8Jbef_5WT69Hc0GPp7aVT0GgYPB3JwFo1U
 
 {
-    "product_name": "test product",
+    "product_name": "UpdatedName",
     "product_alt_text": "This is epic things alt text!!!",
     "product_price": "7€",
     "product_description" : "Heres the description",
-    "youtube_url" : "https://www.youtube.com/embed/iDL3fN5cg1A",
-    // breakpoint for img
-    "img_path": "https://png.pngtree.com/png-vector/20200510/ourmid/pngtree-black-hello-world-phrase-svg-art-word-png-image_91194.jpg",
-    // breakpoint for tag
-    "tag_name": "Tech"
+    "youtube_url" : "https://www.youtube.com/embed/iDL3fN5cg1A"
 } 

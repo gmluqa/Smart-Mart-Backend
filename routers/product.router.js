@@ -8,6 +8,7 @@ const {
   searchProductDetailByNameController,
   createProductController,
   deleteProductController,
+  updateProductController,
 } = require("../controllers/product.controller.js");
 
 const {
@@ -30,6 +31,12 @@ productRouter.get("/name/:name", getProductDetailByNameController);
 productRouter.get("/search/:search", searchProductDetailByNameController);
 
 // UPDATE (only admin can update a product)
+productRouter.put(
+  "/id/:id",
+  authenticateToken,
+  isAdmin,
+  updateProductController
+);
 
 // DELETE (only admin can delete a product)
 productRouter.delete(

@@ -4,6 +4,7 @@ const {
   getProductDetailByName,
   productsGetBySearch,
   createNewProduct,
+  updateProduct,
 } = require("../services/product.service.js");
 
 const { createNewProductTag } = require("../services/tag.service.js");
@@ -77,6 +78,22 @@ const deleteProductController = async (req, res) => {
   }
 };
 
+const updateProductController = async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  try {
+    const updatedProductById = await updateProduct(body, id);
+    console.log(updatedProductById);
+    if (updatedProductById[0]) {
+      res.status(202).json({ message: "Product updated succesfully" });
+    } else {
+      throw new Error();
+    }
+  } catch (error) {
+    res.status(404).json({ message: "Product by id not found" });
+  }
+};
+
 module.exports = {
   getProductDetailController,
   getImageByIdAndDefiner,
@@ -84,4 +101,5 @@ module.exports = {
   searchProductDetailByNameController,
   createProductController,
   deleteProductController,
+  updateProductController,
 };

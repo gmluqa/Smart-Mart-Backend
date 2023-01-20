@@ -81,10 +81,29 @@ const createNewProduct = async (body) => {
   return newProduct;
 };
 
+const updateProduct = async (body, id) => {
+  const updatedProduct = await models.Product.update(
+    {
+      product_name: body.product_name,
+      product_alt_text: body.product_alt_text,
+      product_price: body.product_price,
+      product_description: body.product_description,
+      youtube_url: body.youtube_url,
+    },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
+  return updatedProduct;
+};
+
 module.exports = {
   getProductDetail,
   getImgByProductIdAndImgDefiner,
   getProductDetailByName,
   productsGetBySearch,
   createNewProduct,
+  updateProduct,
 };
