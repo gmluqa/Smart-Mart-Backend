@@ -7,6 +7,7 @@ const {
   getProductDetailByNameController,
   searchProductDetailByNameController,
   createProductController,
+  deleteProductController,
 } = require("../controllers/product.controller.js");
 
 const {
@@ -31,5 +32,11 @@ productRouter.get("/search/:search", searchProductDetailByNameController);
 // UPDATE (only admin can update a product)
 
 // DELETE (only admin can delete a product)
+productRouter.delete(
+  "/id/:id",
+  authenticateToken,
+  isAdmin,
+  deleteProductController
+);
 
 module.exports = productRouter;

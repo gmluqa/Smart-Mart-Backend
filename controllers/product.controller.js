@@ -66,10 +66,22 @@ const createProductController = async (req, res) => {
   }
 };
 
+const deleteProductController = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const productById = await getProductDetail(id);
+    await productById.destroy();
+    res.status(202).json({ message: "Product deleted succesfully" });
+  } catch (error) {
+    res.status(404).json({ message: "Product by id not found" });
+  }
+};
+
 module.exports = {
   getProductDetailController,
   getImageByIdAndDefiner,
   getProductDetailByNameController,
   searchProductDetailByNameController,
   createProductController,
+  deleteProductController,
 };
