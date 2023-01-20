@@ -3,6 +3,8 @@ const jsonwebtoken = require("jsonwebtoken");
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
+  const role = req.query.role;
+  console.log(role);
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) {
     return res
