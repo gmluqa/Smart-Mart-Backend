@@ -1,7 +1,7 @@
 const express = require("express");
 const orderRouter = express.Router();
 
-const { authenticateToken } = require("../middleware/auth.middleware");
+const { authenticateToken, isAdmin } = require("../middleware/auth.middleware");
 
 const {
   orderController,
@@ -11,6 +11,6 @@ const {
 
 orderRouter.post("", authenticateToken, orderController);
 orderRouter.get("", authenticateToken, ordersMadeByUserController);
-orderRouter.get("/admin", authenticateToken, adminAllOrderController);
+orderRouter.get("/admin", authenticateToken, isAdmin, adminAllOrderController);
 
 module.exports = orderRouter;

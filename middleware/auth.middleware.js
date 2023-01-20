@@ -3,8 +3,6 @@ const jsonwebtoken = require("jsonwebtoken");
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
-  const role = req.query.role;
-  console.log(role);
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) {
     return res
@@ -25,6 +23,16 @@ const authenticateToken = (req, res, next) => {
   }
 };
 
+const isAdmin = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  jsonwebtoken.decode(token).userType == "Admin"
+    ? next()
+    : res.status(401).send({ message: "You are not an Admin" });
+};
+
 module.exports = {
   authenticateToken,
+  isAdmin,
 };
