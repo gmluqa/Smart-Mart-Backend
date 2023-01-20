@@ -11,6 +11,6 @@ const {
 
 orderRouter.post("", authenticateToken, orderController);
 orderRouter.get("", authenticateToken, ordersMadeByUserController);
-orderRouter.get("/admin", authenticateToken, isAdmin, adminAllOrderController);
+orderRouter.get("/all", authenticateToken, isAdmin, adminAllOrderController);
 
 module.exports = orderRouter;
