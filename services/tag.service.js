@@ -23,6 +23,16 @@ const getProductsByTag = async (tagName) => {
   return productsGotByTagName;
 };
 
+const createNewProductTag = async (body, productId) => {
+  const newProductTag = new models.Tag({
+    product_id: productId,
+    tag_name: body.tag_name,
+  });
+  await newProductTag.save();
+  return newProductTag;
+};
+
 module.exports = {
   getProductsByTag,
+  createNewProductTag,
 };

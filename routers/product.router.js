@@ -6,6 +6,7 @@ const {
   getImageByIdAndDefiner,
   getProductDetailByNameController,
   searchProductDetailByNameController,
+  createProductController,
 } = require("../controllers/product.controller.js");
 
 const {
@@ -14,7 +15,12 @@ const {
 } = require("../middleware/auth.middleware.js");
 
 // CREATE (only admin can create a new product)
-productRouter.post("/create-product", authenticateToken, isAdmin);
+productRouter.post(
+  "/create-product",
+  authenticateToken,
+  isAdmin,
+  createProductController
+);
 
 // READ (can be accessed by anyone, no auth needed)
 productRouter.get("/id/:id", getProductDetailController);

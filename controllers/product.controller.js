@@ -3,7 +3,12 @@ const {
   getImgByProductIdAndImgDefiner,
   getProductDetailByName,
   productsGetBySearch,
+  createNewProduct,
 } = require("../services/product.service.js");
+
+const { createNewProductTag } = require("../services/tag.service.js");
+
+const { createNewProductMainImg } = require("../services/img.service.js");
 
 const getProductDetailController = async (req, res) => {
   try {
@@ -46,9 +51,25 @@ const searchProductDetailByNameController = async (req, res) => {
   }
 };
 
+const createProductController = async (req, res) => {
+  const body = req.body;
+  try {
+    console.log(body);
+    // first we add the product to our db
+    let newProduct = await createNewProduct(body);
+    const PRODUCT_ID = newProduct.dataValues.id;
+    await createNewProductTag(body, PRODUCT_ID);
+    await createNewProductMainImg(body, PRODUCT_ID);
+    res.status(202).json({ message: "Created succesfully" });
+  } catch (error) {
+    res.status(409).json({ message: "Product could not be created" });
+  }
+};
+
 module.exports = {
   getProductDetailController,
   getImageByIdAndDefiner,
   getProductDetailByNameController,
   searchProductDetailByNameController,
+  createProductController,
 };

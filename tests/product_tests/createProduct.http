@@ -4,7 +4,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNtYXJ0bWFydC5jb20iLCJleHAiOjE2NzM4Nzc3NTA5NjMsInVzZXJUeXBlIjoiQWRtaW4iLCJpYXQiOjE2NzM3Nzc3NTB9.VIdLiyLRT8Jbef_5WT69Hc0GPp7aVT0GgYPB3JwFo1U
 
 {
-    "product_name": "Epic thing",
+    "product_name": "AAAAAAAAAAAAAAAAAAaaa",
     "product_alt_text": "This is epic things alt text!!!",
     "product_price": "7€",
     "product_description" : "Heres the description",

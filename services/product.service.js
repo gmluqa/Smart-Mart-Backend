@@ -68,9 +68,23 @@ const productsGetBySearch = async (search) => {
   return searchResults;
 };
 
+const createNewProduct = async (body) => {
+  const newProduct = new models.Product({
+    product_name: body.product_name,
+    product_alt_text: body.product_alt_text,
+    product_price: body.product_price,
+    product_description: body.product_description,
+    youtube_url: body.youtube_url,
+    active: true,
+  });
+  await newProduct.save();
+  return newProduct;
+};
+
 module.exports = {
   getProductDetail,
   getImgByProductIdAndImgDefiner,
   getProductDetailByName,
   productsGetBySearch,
+  createNewProduct,
 };
