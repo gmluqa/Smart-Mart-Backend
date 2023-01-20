@@ -47,26 +47,16 @@ const ordersMadeByUserController = async (req, res) => {
     });
     resp ? res.status(202).json(resp) : res.status(404).json;
   } catch (error) {
-    res.status(404).json({ message: "Error with fetching orderss" });
+    res.status(404).json({ message: "Error with fetching orders" });
   }
 };
 
 const adminAllOrderController = async (req, res) => {
   try {
-    if (
-      jsonwebtoken.decode(req.headers["authorization"].split(" ")[1])
-        .userType == "Admin"
-    ) {
-      let resp = await getAllOrdersMadeInApp();
-      resp ? res.status(202).json(resp) : res.status(404).json;
-    } else if (
-      jsonwebtoken.decode(req.headers["authorization"].split(" ")[1])
-        .userType != "Admin"
-    ) {
-      throw new Error("Not admin");
-    }
+    let resp = await getAllOrdersMadeInApp();
+    resp ? res.status(202).json(resp) : res.status(404).json;
   } catch (error) {
-    res.status(401).json({ message: "Not an admin" });
+    res.status(404).json({ message: "Error with fetching orders" });
   }
 };
 
